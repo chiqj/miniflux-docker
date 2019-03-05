@@ -1,0 +1,28 @@
+version: '3'
+
+
+services:
+
+  miniflux:
+    image: miniflux/miniflux:latest
+    ports:
+      - "127.0.0.1:8080:8080"
+    depends_on:
+      - pgdb
+    environment:
+      DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@pgdb/miniflux?sslmode=disable
+      RUN_MIGRATIONS: 1
+      CREATE_ADMIN: 1
+      POLLING_FREQUENCY: 5
+      BASE_URL:
+      ADMIN_USERNAME:
+      ADMIN_PASSWORD:
+    restart: on-failure
+
+  pgdb:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER:
+      POSTGRES_PASSWORD:
+      POSTGRES_DB: miniflux
+    restart: on-failure
