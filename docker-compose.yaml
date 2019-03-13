@@ -13,6 +13,7 @@ services:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@pgdb/miniflux?sslmode=disable
       RUN_MIGRATIONS: 1
       CREATE_ADMIN: 1
+      BATCH_SIZE: 20
       POLLING_FREQUENCY: 5
       BASE_URL:
       ADMIN_USERNAME:
