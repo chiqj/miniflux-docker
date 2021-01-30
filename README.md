@@ -5,7 +5,7 @@
 # 准备
 
 ```
-git clone https://github.com/chiqj/miniflux-docker.git
+git clone https://github.com/mrchi/miniflux-docker.git
 ```
 
 # 创建环境变量配置文件
@@ -13,7 +13,7 @@ git clone https://github.com/chiqj/miniflux-docker.git
 进入项目根目录，创建 `.env` 文件，内容如下：
 
 ```
-# 访问应用的地址，用于设置 cookie
+# 应用的访问地址，用于设置 cookie
 BASE_URL=https://example.com/
 
 # miniflux 管理员帐号和密码
@@ -35,7 +35,4 @@ docker-compose up -d
 
 # 设置 Nginx 代理
 
-```
-sudo cp nginx.conf /etc/nginx/sites-enabled/miniflux.conf
-sudo nginx -s reload
-```
+参考 [mrchi/secure\-nginx](https://github.com/mrchi/secure-nginx)
